@@ -2,6 +2,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const cors = require('cors');
 const { createUser, login } = require('./controllers/users');
 const routerUser = require('./routes/users');
 const routerMovie = require('./routes/movies');
@@ -16,6 +18,8 @@ const { PORT = 4000 } = process.env;
 const app = express();
 
 mongoose.connect(DB_ADDRESS);
+
+app.use(cors({ origin: ['http://localhost:3000'], credentials: true }));
 
 app.use(bodyParser.json());
 
