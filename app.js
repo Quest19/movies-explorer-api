@@ -18,7 +18,7 @@ const app = express();
 
 mongoose.connect(DB_ADDRESS);
 
-app.use(cors({ origin: ['http://localhost:3001'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3001', 'http://quest19-diplom.nomoredomainsicu.ru', 'https://quest19-diplom.nomoredomainsicu.ru'], credentials: true }));
 
 app.use(bodyParser.json());
 
